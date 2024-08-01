@@ -1,5 +1,10 @@
 const express = require('express')
-const { CreateNewCityController, GetAllCityController, UpdateACityController, DeleteACityController } = require('../controller/City.Controller')
+const {
+    CreateNewCityController,
+    GetAllCityController,
+    UpdateACityController,
+    DeleteACityController
+} = require('../controller/City.Controller')
 
 const CityRouter = express.Router()
 

@@ -14,9 +14,7 @@ async function CreateNewCityController(req, res) {
             success: true,
             data: result.data
         })
-        res.json({
-            success: true
-        })
+        
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -31,9 +29,22 @@ async function GetAllCityController(req, res) {
         const result = await GetAllCityFromDBService()
 
         if(result.success){
+
+            const DATA = result.data.map((element) => {
+
+                const {_id, name, description, cuisines, image} = element
+
+                return {
+                    id : _id,
+                    name,
+                    description,
+                    cuisines,
+                    image
+                }
+            })
             res.status(200).json({
                 success: true,
-                data: result.data
+                data: DATA
             }) 
         }else{
             throw new Error("GetAllCityFromDBService didn't get any city")
