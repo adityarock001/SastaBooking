@@ -7,13 +7,15 @@ const AdventureRouter = require('./src/router/Adventure.Router')
 const AdventureDetailRouter = require('./src/router/AdventureDetail.Router')
 const AuthRouter = require('./src/router/Auth.Router')
 
+const {RequestPathAndMethodLoggerMiddleware} = require('./src/middleware/Logger.Middleware')
+
 const PORT = process.env.PORT
 const NODE_ENV = process.env.NODE_ENV
 
 const server = express()
 
 server.use(express.json())
-
+server.use(RequestPathAndMethodLoggerMiddleware)
 server.use('/auth',AuthRouter)
 server.use('/cities',CityRouter)
 server.use('/adventure',AdventureRouter)
