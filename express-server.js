@@ -6,8 +6,10 @@ const CityRouter = require('./src/router/City.Router')
 const AdventureRouter = require('./src/router/Adventure.Router')
 const AdventureDetailRouter = require('./src/router/AdventureDetail.Router')
 const AuthRouter = require('./src/router/Auth.Router')
+const ReservationResult = require('./src/router/Reservation.Router')
 
 const {RequestPathAndMethodLoggerMiddleware} = require('./src/middleware/Logger.Middleware')
+const ReservationRouter = require('./src/router/Reservation.Router')
 
 const PORT = process.env.PORT
 const NODE_ENV = process.env.NODE_ENV
@@ -20,6 +22,7 @@ server.use('/auth',AuthRouter)
 server.use('/cities',CityRouter)
 server.use('/adventure',AdventureRouter)
 server.use('/adventureDetail',AdventureDetailRouter)
+server.use('/reservations', ReservationRouter)
 
 server.use("*", (req, res) => {
     res.status(404).json({

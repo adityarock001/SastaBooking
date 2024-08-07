@@ -6,7 +6,7 @@ const {
     DeleteACityController
 } = require('../controller/City.Controller')
 
-const {  AdminAuthorizationMiddleware } = require('../middleware/Authorization.Middleware')
+const { AdminAuthorizationMiddleware, CustomerAuthorizationMiddleware } = require('../middleware/Authorization.Middleware')
 
 const CityRouter = express.Router()
 
